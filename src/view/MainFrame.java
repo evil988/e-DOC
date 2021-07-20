@@ -55,6 +55,9 @@ public class MainFrame{
 		JMenuItem mntmListarPacientes = new JMenuItem("Listar Pacientes");
 		mnListar.add(mntmListarPacientes);
 		
+		JMenuItem mntmListarMdicos = new JMenuItem("Listar M\u00E9dicos");
+		mnListar.add(mntmListarMdicos);
+		
 		JMenuItem mntmListarConsultas = new JMenuItem("Listar Consultas");
 		mnListar.add(mntmListarConsultas);
 				
