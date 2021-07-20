@@ -53,12 +53,24 @@ public class MainFrame{
 		menuBar.add(mnListar);
 		
 		JMenuItem mntmListarPacientes = new JMenuItem("Listar Pacientes");
+		mntmListarPacientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		mnListar.add(mntmListarPacientes);
 		
 		JMenuItem mntmListarMdicos = new JMenuItem("Listar M\u00E9dicos");
+		mntmListarMdicos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		mnListar.add(mntmListarMdicos);
 		
 		JMenuItem mntmListarConsultas = new JMenuItem("Listar Consultas");
+		mntmListarConsultas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		mnListar.add(mntmListarConsultas);
 				
 		mw.setVisible(true);
