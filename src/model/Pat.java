@@ -1,3 +1,5 @@
+package model;
+
 import java.util.Date;
 
 import javax.swing.JRadioButton;
