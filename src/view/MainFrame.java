@@ -3,9 +3,9 @@ package view;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-public class MainWindow{
+public class MainFrame{
 	
-	public MainWindow() {
+	public MainFrame() {
 		
 		JFrame mw = new JFrame("e-DOC");
 		mw.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
