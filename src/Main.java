@@ -1,4 +1,4 @@
-import view.MainWindow;
+import view.MainFrame;
 
 public class Main {	
 
@@ -6,7 +6,7 @@ public class Main {
 		
 		Collection database = new Collection();
 		
-		new MainWindow();
+		new MainFrame();
 		
 	}
 }
