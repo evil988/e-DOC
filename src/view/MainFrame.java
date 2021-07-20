@@ -11,6 +11,10 @@ import javax.swing.WindowConstants;
 
 public class MainFrame{
 	
+	public static void main(String[] args) {
+		new MainFrame();
+	}
+	
 	public MainFrame() {
 		
 		JFrame mw = new JFrame("e-DOC");
