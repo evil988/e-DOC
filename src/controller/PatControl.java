@@ -2,11 +2,8 @@ package controller;
 
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-
 import com.toedter.calendar.JDateChooser;
-
 import model.Pat;
-import data.Collection;
 
 public class PatControl {
 	
