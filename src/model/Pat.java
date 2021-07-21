@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
 
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -10,7 +10,7 @@ import com.toedter.calendar.JDateChooser;
 public class Pat {
 	
 	private String nome							= "";
-	private Date dataDeNascimento		= null;
+	private String dataDeNascimento = "";
 	private String endereco					= "";
 	private String cpf							=	"";
 	private String nAmbulatorial		=	"";
@@ -19,12 +19,12 @@ public class Pat {
 	
 	public Pat(JTextField nome, JDateChooser dataDeNascimento, JTextField endereco, JTextField cpf, JTextField nAmbulatorial, JRadioButton possuiPlano, JTextField nomePlano) {
 		this.nome							= nome.getText();
-		this.dataDeNascimento	= dataDeNascimento.getDate();
+		this.dataDeNascimento	= new SimpleDateFormat("dd-MM-yyyy").format(dataDeNascimento.getDate());		
 		this.endereco					= endereco.getText();
 		this.cpf							= cpf.getText();
 		this.nAmbulatorial		= nAmbulatorial.getText();
 		this.possuiPlano			= possuiPlano.isSelected();
-		this.nomePlano				= nomePlano.getText();
+		this.nomePlano				= nomePlano.getText();		
 	}
 
 }
