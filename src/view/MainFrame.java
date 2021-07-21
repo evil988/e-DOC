@@ -38,7 +38,7 @@ public class MainFrame{
 		JMenuItem mntmCadastrarMdico = new JMenuItem("Cadastrar M\u00E9dico");
 		mntmCadastrarMdico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new NewDoc(mw);
+				NewDoc.displayNewDoc(mw);
 			}
 		});
 		mnCadastrar.add(mntmCadastrarMdico);		
