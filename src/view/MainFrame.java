@@ -9,6 +9,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.WindowConstants;
 
+import controller.DocControl;
 import controller.PatControl;
 
 public class MainFrame{
@@ -40,7 +41,7 @@ public class MainFrame{
 		JMenuItem mntmCadastrarMdico = new JMenuItem("Cadastrar M\u00E9dico");
 		mntmCadastrarMdico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				NewDoc.displayNewDoc(mw);
+				DocControl.displayNewDoc(mw);
 			}
 		});
 		mnCadastrar.add(mntmCadastrarMdico);		
