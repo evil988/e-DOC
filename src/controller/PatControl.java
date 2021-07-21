@@ -6,6 +6,7 @@ import javax.swing.JTextField;
 import com.toedter.calendar.JDateChooser;
 
 import model.Pat;
+import data.Collection;
 
 public class PatControl {
 	
