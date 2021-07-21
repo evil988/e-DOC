@@ -139,7 +139,7 @@ public class NewDoc{
 		btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DocControl.clearNewDoc(textField, textField_1, textField_2, textField_3);				
+				DocControl.clearNewDoc();				
 			}
 		});		
 		panel_1.add(btnLimpar);	
@@ -161,4 +161,11 @@ public class NewDoc{
 		mw.getContentPane().revalidate();
 		mw.getContentPane().repaint();	
 	}	
+	
+	public static void clearNewDoc() {
+		textField.setText(null);
+		textField_1.setText(null);
+		textField_2.setText(null);
+		textField_3.setText(null);		
+	}
 }
