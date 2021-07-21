@@ -30,7 +30,7 @@ public class MainFrame{
 		JMenuItem mntmCadastrarPaciente = new JMenuItem("Cadastrar Paciente");
 		mntmCadastrarPaciente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new NewPat(mw);
+				NewPat.displayNewPat(mw);
 			}
 		});
 		mnCadastrar.add(mntmCadastrarPaciente);
