@@ -1,5 +1,7 @@
 package view;
 
+import controller.PatControl;
+
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -15,6 +17,8 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import com.toedter.calendar.JDateChooser;
+
+import controller.PatControl;
 
 public class NewPat {
 	
@@ -195,6 +199,7 @@ public class NewPat {
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				PatControl.savePat(textField, dateChooser, textField_1, textField_2, textField_3, rdbtnSim, textField_4);
 			}
 		});
 		panel_1.add(btnSalvar);
