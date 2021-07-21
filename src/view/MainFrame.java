@@ -9,6 +9,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.WindowConstants;
 
+import controller.PatControl;
+
 public class MainFrame{
 	
 	public static void main(String[] args) {
@@ -30,7 +32,7 @@ public class MainFrame{
 		JMenuItem mntmCadastrarPaciente = new JMenuItem("Cadastrar Paciente");
 		mntmCadastrarPaciente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				NewPat.displayNewPat(mw);
+				PatControl.displayNewPat(mw);
 			}
 		});
 		mnCadastrar.add(mntmCadastrarPaciente);
