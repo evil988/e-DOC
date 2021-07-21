@@ -218,13 +218,7 @@ public class NewPat {
 		btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textField.setText(null);
-				dateChooser.setCalendar(null);
-				textField_1.setText(null);
-				textField_2.setText(null);
-				textField_3.setText(null);
-				rdbtnNo.doClick();
-				textField_4.setText(null);				
+				PatControl.clearNewPat(textField, dateChooser, textField_1, textField_2, textField_3, rdbtnNo, textField_4);				
 			}
 		});
 	}

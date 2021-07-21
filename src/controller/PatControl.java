@@ -17,4 +17,15 @@ public class PatControl {
 	public static void displayNewPat(JFrame mw) {
 		NewPat.displayNewPat(mw);
 	}
+
+	public static void clearNewPat(JTextField textField, JDateChooser dateChooser, JTextField textField_1,
+			JTextField textField_2, JTextField textField_3, JRadioButton rdbtnNo, JTextField textField_4) {
+		textField.setText(null);
+		dateChooser.setCalendar(null);
+		textField_1.setText(null);
+		textField_2.setText(null);
+		textField_3.setText(null);
+		rdbtnNo.doClick();
+		textField_4.setText(null);		
+	}
 }
