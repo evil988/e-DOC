@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controller.DocControl;
+
 public class NewDoc{
 	
 	private static JTextField textField;
@@ -137,10 +139,7 @@ public class NewDoc{
 		btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textField.setText(null);
-				textField_1.setText(null);
-				textField_2.setText(null);
-				textField_3.setText(null);				
+				DocControl.limpar(textField, textField_1, textField_2, textField_3);				
 			}
 		});		
 		panel_1.add(btnLimpar);	
