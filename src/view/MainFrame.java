@@ -65,6 +65,7 @@ public class MainFrame{
 		JMenuItem mntmListarMdicos = new JMenuItem("Listar M\u00E9dicos");
 		mntmListarMdicos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				DocControl.displayDocTable(mw);
 			}
 		});
 		mnListar.add(mntmListarMdicos);
