@@ -67,11 +67,11 @@ public class NewPat {
 	
 	public static void displayNewPat(JFrame mw) {
 		if(gridBagLayout == null)
-			initComponents(mw);
+			initComponents();
 		display(mw);
 	}		
 	
-	private static void initComponents(JFrame mw) {
+	private static void initComponents() {
 		gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] {30, 30, 30, 30};
 		gridBagLayout.rowHeights = new int[] {30, 30, 30, 30, 30, 30, 30, 30, 30, 30};
