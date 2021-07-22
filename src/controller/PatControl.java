@@ -9,7 +9,7 @@ import view.NewPat;
 
 public class PatControl {
 	
-	public static void savePat(JTextField nome, JDateChooser dataDeNascimento, JTextField endereco, JTextField cpf, JTextField nAmbulatorial, JRadioButton possuiPlano, JTextField nomePlano) {
+	public static void savePat(String nome, String dataDeNascimento, String endereco, String cpf, String nAmbulatorial, boolean possuiPlano, String nomePlano) {
 		Pat patient = new Pat(nome, dataDeNascimento, endereco, cpf, nAmbulatorial, possuiPlano, nomePlano);
 		
 	}
