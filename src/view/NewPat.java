@@ -6,6 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -211,7 +212,7 @@ public class NewPat {
 		btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PatControl.savePat(textField, dateChooser, textField_1, textField_2, textField_3, rdbtnSim, textField_4);
+				PatControl.savePat(textField.getText(), new SimpleDateFormat("dd-MM-yyyy").format(dateChooser.getDate()), textField_1.getText(), textField_2.getText(), textField_3.getText(), rdbtnSim.isSelected(), textField_4.getText());
 			}
 		});
 		
