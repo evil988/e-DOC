@@ -37,7 +37,6 @@ public class DocTable {
 		mw.getContentPane().removeAll();
 		mw.getContentPane().setLayout(new BorderLayout(0, 0));
 		mw.getContentPane().add(tabbedPane, BorderLayout.CENTER);
-		tabbedPane.addTab("New tab", null, scrollPane, null);
 		tabbedPane.addTab("M\u00E9dicos", null, scrollPane, null);		
 		scrollPane.setViewportView(table);
 		mw.getContentPane().revalidate();
