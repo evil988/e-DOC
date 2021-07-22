@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 
 import model.Pat;
 import view.NewPat;
+import view.PatTable;
 
 public class PatControl {
 	
@@ -18,5 +19,9 @@ public class PatControl {
 
 	public static void clearNewPat() {
 		NewPat.clearNewPat();
+	}
+	
+	public static void displayPatTable(JFrame mw) {
+		PatTable.displayPatTable(mw);
 	}
 }

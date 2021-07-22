@@ -58,6 +58,7 @@ public class MainFrame{
 		JMenuItem mntmListarPacientes = new JMenuItem("Listar Pacientes");
 		mntmListarPacientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				PatControl.displayPatTable(mw);
 			}
 		});
 		mnListar.add(mntmListarPacientes);
