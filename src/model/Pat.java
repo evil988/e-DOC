@@ -1,30 +1,23 @@
 package model;
 
-import java.text.SimpleDateFormat;
-
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
-
-import com.toedter.calendar.JDateChooser;
-
 public class Pat {
 	
-	private String nome							= "";
-	private String dataDeNascimento = "";
-	private String endereco					= "";
-	private String cpf							=	"";
-	private String nAmbulatorial		=	"";
-	private boolean possuiPlano			=	false;
-	private String nomePlano				= "";
+	private String nome;
+	private String dataDeNascimento;
+	private String endereco;
+	private String cpf;
+	private String nAmbulatorial;
+	private String nomePlano;
+	private boolean possuiPlano;
 	
-	public Pat(JTextField nome, JDateChooser dataDeNascimento, JTextField endereco, JTextField cpf, JTextField nAmbulatorial, JRadioButton possuiPlano, JTextField nomePlano) {
-		this.nome							= nome.getText();
-		this.dataDeNascimento	= new SimpleDateFormat("dd-MM-yyyy").format(dataDeNascimento.getDate());		
-		this.endereco					= endereco.getText();
-		this.cpf							= cpf.getText();
-		this.nAmbulatorial		= nAmbulatorial.getText();
-		this.possuiPlano			= possuiPlano.isSelected();
-		this.nomePlano				= nomePlano.getText();		
+	public Pat(String nome, String dataDeNascimento, String endereco, String cpf, String nAmbulatorial, boolean possuiPlano, String nomePlano) {
+		this.nome							= nome;
+		this.dataDeNascimento	= dataDeNascimento;		
+		this.endereco					= endereco;
+		this.cpf							= cpf;
+		this.nAmbulatorial		= nAmbulatorial;
+		this.possuiPlano			= possuiPlano;
+		this.nomePlano				= nomePlano;
 	}
 
 }
