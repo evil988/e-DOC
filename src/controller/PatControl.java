@@ -24,4 +24,12 @@ public class PatControl {
 	public static void displayPatTable(JFrame mw) {
 		PatTable.displayPatTable(mw);
 	}
+
+	public static void yes() {
+		NewPat.yes();		
+	}
+	
+	public static void no() {
+		NewPat.no();
+	}
 }

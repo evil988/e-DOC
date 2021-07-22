@@ -170,19 +170,14 @@ public class NewPat {
 		rdbtnSim = new JRadioButton("Sim");
 		rdbtnSim.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				rdbtnSim.setSelected(true);
-				rdbtnNo.setSelected(false);
-				textField_4.setEditable(true);
+				PatControl.yes();
 			}
 		});
 		
 		rdbtnNo = new JRadioButton("N\u00E3o");
 		rdbtnNo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				rdbtnSim.setSelected(false);
-				rdbtnNo.setSelected(true);
-				textField_4.setText(null);
-				textField_4.setEditable(false);
+				PatControl.no();
 			}
 		});
 		rdbtnNo.setSelected(true);
@@ -259,5 +254,18 @@ public class NewPat {
 		textField_3.setText(null);
 		rdbtnNo.doClick();
 		textField_4.setText(null);		
+	}
+	
+	public static void yes() {
+		rdbtnSim.setSelected(true);
+		rdbtnNo.setSelected(false);
+		textField_4.setEditable(true);
+	}
+	
+	public static void no() {
+		rdbtnSim.setSelected(false);
+		rdbtnNo.setSelected(true);
+		textField_4.setText(null);
+		textField_4.setEditable(false);
 	}
 }
