@@ -2,34 +2,51 @@ package controller;
 
 import javax.swing.JFrame;
 
-import model.Pat;
 import view.NewPat;
 import view.PatTable;
 
-public class PatControl {
+public class PatControl implements Control<String>{
 	
-	public static void savePat(String nome, String dataDeNascimento, String endereco, String cpf, String nAmbulatorial, boolean possuiPlano, String nomePlano) {
-		Pat patient = new Pat(nome, dataDeNascimento, endereco, cpf, nAmbulatorial, possuiPlano, nomePlano);
+	private static PatControl pc;
+	private static NewPat np;
+	private static PatTable pt;
+	
+	private PatControl(){
 		
 	}
 	
-	public static void displayNewPat(JFrame mw) {
-		NewPat.displayNewPat(mw);
-	}
-
-	public static void clearNewPat() {
-		NewPat.clearNewPat();
+	public static PatControl getInstance() {
+		if (pc == null)
+			pc = new PatControl();
+		return pc;		
 	}
 	
-	public static void displayPatTable(JFrame mw) {
-		PatTable.displayPatTable(mw);
-	}
-
-	public static void yes() {
-		NewPat.yes();		
+	public void save(String values[]) {		
+		
 	}
 	
-	public static void no() {
-		NewPat.no();
+	public void display(JFrame mw) {
+		np = NewPat.getInstance();
+		np.initialize(mw);
+	}
+
+	public void clear() {
+		np = NewPat.getInstance();
+		np.clear();
+	}
+	
+	public void displayTable(JFrame mw) {		
+		pt = PatTable.getInstance();
+		pt.initialize(mw);
+	}
+
+	public void yes() {
+		np = NewPat.getInstance();
+		np.yes();	
+	}
+	
+	public void no() {
+		np = NewPat.getInstance();
+		np.no();
 	}
 }
