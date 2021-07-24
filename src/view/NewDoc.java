@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 
 import controller.DocControl;
 
-public class NewDoc{
+public class NewDoc implements View{
 	
 	private static JTextField textField;
 	private static JTextField textField_1;
@@ -45,13 +45,27 @@ public class NewDoc{
 	private static JButton btnSalvar;
 	private static JButton btnLimpar;
 	
-	public static void displayNewDoc(JFrame mw) {
-		if(gbl_panel == null)
+	private static NewDoc nd;
+	private static DocControl dc;
+	
+	public static NewDoc getInstance() {
+		if (nd == null)
+			nd = new NewDoc();
+		return nd;
+	}
+	
+	private NewDoc() {
+		
+	}
+	
+	public void initialize(JFrame mw) {
+		if (gbl_panel == null)
 			initComponents();
 		display(mw);
 	}
+		
 	
-	private static void initComponents() {
+	public void initComponents() {
 		gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[] {30, 30, 30, 0, 30};
 		gbl_panel.rowHeights = new int[] {30, 30, 30, 30, 30, 30, 0, 30};
@@ -139,13 +153,14 @@ public class NewDoc{
 		btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DocControl.clearNewDoc();				
+				dc = DocControl.getInstance();
+				dc.clear();			
 			}
 		});		
 		panel_1.add(btnLimpar);	
 	}
 	
-	private static void display(JFrame mw) {
+	public void display(JFrame mw) {
 		mw.getContentPane().removeAll();
 		mw.getContentPane().setLayout(gbl_panel);
 		mw.getContentPane().add(lblCadastrarNovoMdico, gbc_lblCadastrarNovoMdico);
@@ -162,7 +177,7 @@ public class NewDoc{
 		mw.getContentPane().repaint();	
 	}	
 	
-	public static void clearNewDoc() {
+	public void clear() {
 		textField.setText(null);
 		textField_1.setText(null);
 		textField_2.setText(null);
