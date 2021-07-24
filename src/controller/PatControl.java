@@ -7,8 +7,7 @@ import view.PatTable;
 
 public class PatControl implements Control<String>{
 	
-	private static PatControl pc;
-	private static NewPat np;
+	private static PatControl pc;	
 	private static PatTable pt;
 	
 	private PatControl(){
@@ -26,13 +25,11 @@ public class PatControl implements Control<String>{
 	}
 	
 	public void display(JFrame mw) {
-		np = NewPat.getInstance();
-		np.initialize(mw);
+		getNewPat().initialize(mw);
 	}
 
 	public void clear() {
-		np = NewPat.getInstance();
-		np.clear();
+		getNewPat().clear();
 	}
 	
 	public void displayTable(JFrame mw) {		
@@ -41,12 +38,14 @@ public class PatControl implements Control<String>{
 	}
 
 	public void yes() {
-		np = NewPat.getInstance();
-		np.yes();	
+		getNewPat().yes();	
 	}
 	
 	public void no() {
-		np = NewPat.getInstance();
-		np.no();
+		getNewPat().no();
+	}
+	
+	public static NewPat getNewPat() {
+		return NewPat.getInstance();
 	}
 }
