@@ -9,8 +9,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.WindowConstants;
 
-import controller.DocControl;
-import controller.PatControl;
+import controller.Facade;
 
 public class MainFrame{
 	
@@ -33,7 +32,7 @@ public class MainFrame{
 		JMenuItem mntmCadastrarPaciente = new JMenuItem("Cadastrar Paciente");
 		mntmCadastrarPaciente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PatControl.displayNewPat(mw);
+				Facade.displayNewPat(mw);
 			}
 		});
 		mnCadastrar.add(mntmCadastrarPaciente);
@@ -41,7 +40,7 @@ public class MainFrame{
 		JMenuItem mntmCadastrarMdico = new JMenuItem("Cadastrar M\u00E9dico");
 		mntmCadastrarMdico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DocControl.displayNewDoc(mw);
+				Facade.displayNewDoc(mw);
 			}
 		});
 		mnCadastrar.add(mntmCadastrarMdico);		
@@ -50,6 +49,10 @@ public class MainFrame{
 		menuBar.add(mnConsultar);
 		
 		JMenuItem mntmEfetuarConsulta = new JMenuItem("Efetuar Consulta");
+		mntmEfetuarConsulta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		mnConsultar.add(mntmEfetuarConsulta);
 		
 		JMenu mnListar = new JMenu("Listar");
@@ -58,7 +61,7 @@ public class MainFrame{
 		JMenuItem mntmListarPacientes = new JMenuItem("Listar Pacientes");
 		mntmListarPacientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PatControl.displayPatTable(mw);
+				Facade.displayPatTable(mw);
 			}
 		});
 		mnListar.add(mntmListarPacientes);
@@ -66,7 +69,7 @@ public class MainFrame{
 		JMenuItem mntmListarMdicos = new JMenuItem("Listar M\u00E9dicos");
 		mntmListarMdicos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DocControl.displayDocTable(mw);
+				Facade.displayDocTable(mw);
 			}
 		});
 		mnListar.add(mntmListarMdicos);
