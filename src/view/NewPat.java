@@ -19,7 +19,7 @@ import com.toedter.calendar.JDateChooser;
 
 import controller.PatControl;
 
-public class NewPat {
+public class NewPat implements View{
 	
 	private static JTextField textField;	
 	private static JTextField textField_1;
@@ -66,13 +66,26 @@ public class NewPat {
 	private static JPanel panel;
 	private static JPanel panel_1;
 	
-	public static void displayNewPat(JFrame mw) {
-		if(gridBagLayout == null)
+	private static NewPat np;
+	private static PatControl pc;
+	
+	private NewPat() {
+		
+	}
+	
+	public static NewPat getInstance() {
+		if (np == null)
+			np = new NewPat();
+		return np;
+	}
+	
+	public void initialize(JFrame mw) {
+		if (gridBagLayout == null)
 			initComponents();
 		display(mw);
-	}		
+	}
 	
-	private static void initComponents() {
+	public void initComponents() {
 		gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] {30, 30, 30, 30};
 		gridBagLayout.rowHeights = new int[] {30, 30, 30, 30, 30, 30, 30, 30, 30, 30};
@@ -170,14 +183,16 @@ public class NewPat {
 		rdbtnSim = new JRadioButton("Sim");
 		rdbtnSim.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PatControl.yes();
+				pc = PatControl.getInstance();
+				pc.yes();
 			}
 		});
 		
 		rdbtnNo = new JRadioButton("N\u00E3o");
 		rdbtnNo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PatControl.no();
+				pc = PatControl.getInstance();
+				pc.no();
 			}
 		});
 		rdbtnNo.setSelected(true);
@@ -207,19 +222,27 @@ public class NewPat {
 		btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PatControl.savePat(textField.getText(), new SimpleDateFormat("dd-MM-yyyy").format(dateChooser.getDate()), textField_1.getText(), textField_2.getText(), textField_3.getText(), rdbtnSim.isSelected(), textField_4.getText());
+				pc = PatControl.getInstance();
+				pc.save(new String[]{textField.getText(), 
+						new SimpleDateFormat("dd-MM-yyyy").format(dateChooser.getDate()), 
+						textField_1.getText(), 
+						textField_2.getText(), 
+						textField_3.getText(), 
+						Boolean.toString(rdbtnSim.isSelected()),
+						textField_3.getText()});				
 			}
 		});
 		
 		btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PatControl.clearNewPat();				
+				pc = PatControl.getInstance();
+				pc.clear();				
 			}
 		});
 	}
 	
-	private static void display(JFrame mw) {
+	public void display(JFrame mw) {
 		mw.getContentPane().removeAll();		
 		mw.getContentPane().setLayout(gridBagLayout);
 		mw.getContentPane().add(lblCadastrarPaciente, gbc_lblCadastrarPaciente);
@@ -246,7 +269,7 @@ public class NewPat {
 		mw.getContentPane().repaint();
 	}
 	
-	public static void clearNewPat() {
+	public void clear() {
 		textField.setText(null);
 		dateChooser.setCalendar(null);
 		textField_1.setText(null);
@@ -256,13 +279,13 @@ public class NewPat {
 		textField_4.setText(null);		
 	}
 	
-	public static void yes() {
+	public void yes() {
 		rdbtnSim.setSelected(true);
 		rdbtnNo.setSelected(false);
 		textField_4.setEditable(true);
 	}
 	
-	public static void no() {
+	public void no() {
 		rdbtnSim.setSelected(false);
 		rdbtnNo.setSelected(true);
 		textField_4.setText(null);
