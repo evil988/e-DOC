@@ -8,19 +8,31 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class DocTable {
+public class DocTable implements View{
 	
 	private static JTabbedPane tabbedPane;
 	private static JScrollPane scrollPane;
 	private static JTable table;
 	
-	public static void displayDocTable(JFrame mw) {
+	private static DocTable dc;
+	
+	private DocTable() {
+		
+	}
+	
+	public static DocTable getInstance() {
+		if (tabbedPane == null)
+			dc = new DocTable();
+		return dc;
+	}
+	
+	public void initialize(JFrame mw) {
 		if(table == null)
 			initComponents();
 		display(mw);
 	}
 	
-	private static void initComponents() {
+	public void initComponents() {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		scrollPane = new JScrollPane();
 		table = new JTable();
@@ -33,7 +45,7 @@ public class DocTable {
 			));
 	}
 	
-	private static void display(JFrame mw) {
+	public void display(JFrame mw) {
 		mw.getContentPane().removeAll();
 		mw.getContentPane().setLayout(new BorderLayout(0, 0));
 		mw.getContentPane().add(tabbedPane, BorderLayout.CENTER);
