@@ -8,8 +8,6 @@ import view.NewDoc;
 public class DocControl implements Control<String>{
 	
 	private static DocControl dc;
-	private static NewDoc nd;
-	private static DocTable dt;
 	
 	private DocControl() {
 		
@@ -26,17 +24,22 @@ public class DocControl implements Control<String>{
 	}
 	
 	public void display(JFrame mw) {
-		nd = NewDoc.getInstance();
-		nd.initialize(mw);
+		getNewDoc().initialize(mw);
 	}
 	
 	public void displayTable(JFrame mw) {
-		dt = DocTable.getInstance();
-		dt.initialize(mw);
+		getNewDocTable().initialize(mw);
 	}
 	
 	public void clear() {
-		nd = NewDoc.getInstance();
-		nd.clear();
+		getNewDoc().clear();
 	}	
+	
+	private static NewDoc getNewDoc() {
+		return NewDoc.getInstance();
+	}
+	
+	private static DocTable getNewDocTable() {
+		return DocTable.getInstance();
+	}
 }
