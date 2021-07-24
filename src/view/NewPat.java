@@ -67,7 +67,6 @@ public class NewPat implements View{
 	private static JPanel panel_1;
 	
 	private static NewPat np;
-	private static PatControl pc;
 	
 	private NewPat() {
 		
@@ -183,16 +182,14 @@ public class NewPat implements View{
 		rdbtnSim = new JRadioButton("Sim");
 		rdbtnSim.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pc = PatControl.getInstance();
-				pc.yes();
+				getPatControl().yes();
 			}
 		});
 		
 		rdbtnNo = new JRadioButton("N\u00E3o");
 		rdbtnNo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pc = PatControl.getInstance();
-				pc.no();
+				getPatControl().no();
 			}
 		});
 		rdbtnNo.setSelected(true);
@@ -222,8 +219,7 @@ public class NewPat implements View{
 		btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pc = PatControl.getInstance();
-				pc.save(new String[]{textField.getText(), 
+				getPatControl().save(new String[]{textField.getText(), 
 						new SimpleDateFormat("dd-MM-yyyy").format(dateChooser.getDate()), 
 						textField_1.getText(), 
 						textField_2.getText(), 
@@ -236,8 +232,7 @@ public class NewPat implements View{
 		btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pc = PatControl.getInstance();
-				pc.clear();				
+				getPatControl().clear();				
 			}
 		});
 	}
@@ -290,5 +285,9 @@ public class NewPat implements View{
 		rdbtnNo.setSelected(true);
 		textField_4.setText(null);
 		textField_4.setEditable(false);
+	}
+	
+	private static PatControl getPatControl() {
+		return PatControl.getInstance();
 	}
 }
