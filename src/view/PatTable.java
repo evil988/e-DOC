@@ -8,19 +8,31 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class PatTable {
+public class PatTable implements View{
 	
 	private static JTabbedPane tabbedPane;
 	private static JScrollPane scrollPane;
 	private static JTable table;
 	
-	public static void displayPatTable(JFrame mw) {
+	private static PatTable pt;
+	
+	private PatTable() {
+		
+	}
+	
+	public static PatTable getInstance() {
+		if (tabbedPane == null)
+			pt = new PatTable();
+		return pt;
+	}
+	
+	public void initialize(JFrame mw) {
 		if(table == null)
 			initComponents();
 		display(mw);
 	}
 	
-	private static void initComponents() {
+	public void initComponents() {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		scrollPane = new JScrollPane();
 		table = new JTable();
@@ -33,7 +45,7 @@ public class PatTable {
 			));
 	}
 	
-	private static void display(JFrame mw) {
+	public void display(JFrame mw) {
 		mw.getContentPane().removeAll();
 		mw.getContentPane().setLayout(new BorderLayout(0, 0));
 		mw.getContentPane().add(tabbedPane, BorderLayout.CENTER);
