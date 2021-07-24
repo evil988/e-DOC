@@ -5,17 +5,38 @@ import javax.swing.JFrame;
 import view.DocTable;
 import view.NewDoc;
 
-public class DocControl {
+public class DocControl implements Control<String>{
 	
-	public static void displayNewDoc(JFrame mw) {
-		NewDoc.displayNewDoc(mw);
+	private static DocControl dc;
+	private static NewDoc nd;
+	private static DocTable dt;
+	
+	private DocControl() {
+		
 	}
 	
-	public static void displayDocTable(JFrame mw) {
-		DocTable.displayDocTable(mw);
+	public static DocControl getInstance() {
+		if (dc == null)
+			dc = new DocControl();
+		return dc;
 	}
 	
-	public static void clearNewDoc() {
-		NewDoc.clearNewDoc();
+	public void save(String values[]) {
+		
+	}
+	
+	public void display(JFrame mw) {
+		nd = NewDoc.getInstance();
+		nd.initialize(mw);
+	}
+	
+	public void displayTable(JFrame mw) {
+		dt = DocTable.getInstance();
+		dt.initialize(mw);
+	}
+	
+	public void clear() {
+		nd = NewDoc.getInstance();
+		nd.clear();
 	}	
 }
