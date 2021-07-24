@@ -2,7 +2,7 @@ package controller;
 
 import javax.swing.JFrame;
 
-public interface Facade {
+public class Facade {
 	
 	public static void displayNewPat(JFrame mw) {
 		PatControl.displayNewPat(mw);
