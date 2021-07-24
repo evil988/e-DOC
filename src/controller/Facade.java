@@ -2,19 +2,16 @@ package controller;
 
 import javax.swing.JFrame;
 
-public class Facade {
+public class Facade {	
 	
-	private static PatControl pc;
 	private static DocControl dc;
 	
 	public static void displayNewPat(JFrame mw) {	
-		pc = PatControl.getInstance();
-		pc.display(mw);
+		getPatControl().display(mw);
 	}
 	
 	public static void displayPatTable(JFrame mw) {
-		pc = PatControl.getInstance();
-		pc.displayTable(mw);
+		getPatControl().displayTable(mw);
 	}
 	
 	public static void displayNewDoc(JFrame mw) {
@@ -26,5 +23,8 @@ public class Facade {
 		dc = DocControl.getInstance();
 		dc.displayTable(mw);
 	}
-
+	
+	private static PatControl getPatControl() {
+		return PatControl.getInstance();
+	}
 }
