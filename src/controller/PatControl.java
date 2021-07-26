@@ -1,7 +1,5 @@
 package controller;
 
-import javax.swing.JFrame;
-
 import view.NewPat;
 import view.PatTable;
 
