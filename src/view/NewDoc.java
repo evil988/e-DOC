@@ -6,7 +6,6 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -46,7 +45,6 @@ public class NewDoc implements View{
 	private static JButton btnLimpar;
 	
 	private static NewDoc nd;
-	private static DocControl dc;
 	
 	public static NewDoc getInstance() {
 		if (nd == null)
@@ -145,7 +143,8 @@ public class NewDoc implements View{
 		btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				getDocControl().save(new String[]{textField.getText(), textField_1.getText(),
+						textField_2.getText(), textField_3.getText()});
 			}
 		});	
 		panel_1.add(btnSalvar);
@@ -153,8 +152,7 @@ public class NewDoc implements View{
 		btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dc = DocControl.getInstance();
-				dc.clear();			
+				getDocControl().clear();			
 			}
 		});		
 		panel_1.add(btnLimpar);	
@@ -182,5 +180,9 @@ public class NewDoc implements View{
 		textField_1.setText(null);
 		textField_2.setText(null);
 		textField_3.setText(null);		
+	}
+	
+	private DocControl getDocControl() {
+		return DocControl.getInstance();
 	}
 }
