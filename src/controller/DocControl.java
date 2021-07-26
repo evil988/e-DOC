@@ -5,7 +5,7 @@ import model.DocList;
 import view.DocTable;
 import view.NewDoc;
 
-public class DocControl implements Control<NewDoc, DocTable>{
+public class DocControl implements Control{
 	
 	private static DocControl dc;
 	
@@ -23,13 +23,13 @@ public class DocControl implements Control<NewDoc, DocTable>{
 	}	
 
 	@Override
-	public NewDoc getRegView() {
-		return NewDoc.getInstance();
+	public void RegView(Object mw) {
+		NewDoc.getInstance().initialize(mw);
 	}
 
 	@Override
-	public DocTable getTabView() {
-		return DocTable.getInstance();
+	public void TabView(Object mw) {
+		DocTable.getInstance().initialize(mw);
 	}
 
 	@Override

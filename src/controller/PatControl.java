@@ -1,9 +1,11 @@
 package controller;
 
+import javax.swing.JFrame;
+
 import view.NewPat;
 import view.PatTable;
 
-public class PatControl implements Control<NewPat, PatTable>{
+public class PatControl implements Control{
 	
 	private static PatControl pc;
 	
@@ -22,13 +24,13 @@ public class PatControl implements Control<NewPat, PatTable>{
 	}
 
 	@Override
-	public NewPat getRegView() {
-		return NewPat.getInstance();
+	public void RegView(Object mw) {
+		NewPat.getInstance().initialize(mw);
 	}
 
 	@Override
-	public PatTable getTabView() {
-		return PatTable.getInstance();
+	public void TabView(Object mw) {
+		PatTable.getInstance().initialize(mw);
 	}
 
 	@Override

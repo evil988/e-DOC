@@ -1,8 +1,8 @@
 package controller;
 
-public interface Control<T1, T2> {
+public interface Control {
 	public void save(String values[]);
 	public String[][] tabRows();
-	public T1 getRegView();
-	public T2 getTabView();
+	public void RegView(Object mw);
+	public void TabView(Object mw);
 }
