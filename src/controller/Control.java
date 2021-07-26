@@ -1,9 +1,7 @@
 package controller;
 
-import javax.swing.JFrame;
-
-public interface Control<T> {
-	public void save(T values[]);
-	public void display(JFrame mw);
-	public void displayTable(JFrame mw);
+public interface Control<T1, T2> {
+	public void save(String values[]);
+	public T1 getRegView();
+	public T2 getTabView();
 }

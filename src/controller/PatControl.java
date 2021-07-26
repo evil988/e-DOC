@@ -1,11 +1,9 @@
 package controller;
 
-import javax.swing.JFrame;
-
 import view.NewPat;
 import view.PatTable;
 
-public class PatControl implements Control<String>{
+public class PatControl implements Control<NewPat, PatTable>{
 	
 	private static PatControl pc;
 	
@@ -22,20 +20,14 @@ public class PatControl implements Control<String>{
 	public void save(String values[]) {		
 		
 	}
-	
-	public void display(JFrame mw) {
-		getNewPat().initialize(mw);
-	}	
-	
-	public void displayTable(JFrame mw) {		
-		getPatTable().initialize(mw);
-	}
-	
-	private static NewPat getNewPat() {
+
+	@Override
+	public NewPat getRegView() {
 		return NewPat.getInstance();
 	}
-	
-	private static PatTable getPatTable() {
+
+	@Override
+	public PatTable getTabView() {
 		return PatTable.getInstance();
 	}
 }

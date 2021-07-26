@@ -1,11 +1,9 @@
 package controller;
 
-import javax.swing.JFrame;
-
 import view.DocTable;
 import view.NewDoc;
 
-public class DocControl implements Control<String>{
+public class DocControl implements Control<NewDoc, DocTable>{
 	
 	private static DocControl dc;
 	
@@ -21,21 +19,15 @@ public class DocControl implements Control<String>{
 	
 	public void save(String values[]) {
 		
-	}
-	
-	public void display(JFrame mw) {
-		getNewDoc().initialize(mw);
-	}
-	
-	public void displayTable(JFrame mw) {
-		getNewDocTable().initialize(mw);
 	}	
-	
-	private static NewDoc getNewDoc() {
+
+	@Override
+	public NewDoc getRegView() {
 		return NewDoc.getInstance();
 	}
-	
-	private static DocTable getNewDocTable() {
+
+	@Override
+	public DocTable getTabView() {
 		return DocTable.getInstance();
 	}
 }
