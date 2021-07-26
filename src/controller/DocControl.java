@@ -29,10 +29,6 @@ public class DocControl implements Control<String>{
 	
 	public void displayTable(JFrame mw) {
 		getNewDocTable().initialize(mw);
-	}
-	
-	public void clear() {
-		getNewDoc().clear();
 	}	
 	
 	private static NewDoc getNewDoc() {

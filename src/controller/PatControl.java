@@ -25,22 +25,10 @@ public class PatControl implements Control<String>{
 	
 	public void display(JFrame mw) {
 		getNewPat().initialize(mw);
-	}
-
-	public void clear() {
-		getNewPat().clear();
-	}
+	}	
 	
 	public void displayTable(JFrame mw) {		
 		getPatTable().initialize(mw);
-	}
-
-	public void yes() {
-		getNewPat().yes();	
-	}
-	
-	public void no() {
-		getNewPat().no();
 	}
 	
 	private static NewPat getNewPat() {

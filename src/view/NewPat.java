@@ -182,14 +182,14 @@ public class NewPat implements View{
 		rdbtnSim = new JRadioButton("Sim");
 		rdbtnSim.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				getPatControl().yes();
+				yes();
 			}
 		});
 		
 		rdbtnNo = new JRadioButton("N\u00E3o");
 		rdbtnNo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				getPatControl().no();
+				no();
 			}
 		});
 		rdbtnNo.setSelected(true);
@@ -232,7 +232,7 @@ public class NewPat implements View{
 		btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				getPatControl().clear();				
+				clear();				
 			}
 		});
 	}
@@ -264,7 +264,7 @@ public class NewPat implements View{
 		mw.getContentPane().repaint();
 	}
 	
-	public void clear() {
+	private void clear() {
 		textField.setText(null);
 		dateChooser.setCalendar(null);
 		textField_1.setText(null);
@@ -274,13 +274,13 @@ public class NewPat implements View{
 		textField_4.setText(null);		
 	}
 	
-	public void yes() {
+	private void yes() {
 		rdbtnSim.setSelected(true);
 		rdbtnNo.setSelected(false);
 		textField_4.setEditable(true);
 	}
 	
-	public void no() {
+	private void no() {
 		rdbtnSim.setSelected(false);
 		rdbtnNo.setSelected(true);
 		textField_4.setText(null);

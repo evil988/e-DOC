@@ -152,7 +152,7 @@ public class NewDoc implements View{
 		btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				getDocControl().clear();			
+				clear();			
 			}
 		});		
 		panel_1.add(btnLimpar);	
@@ -175,7 +175,7 @@ public class NewDoc implements View{
 		mw.getContentPane().repaint();	
 	}	
 	
-	public void clear() {
+	private void clear() {
 		textField.setText(null);
 		textField_1.setText(null);
 		textField_2.setText(null);
