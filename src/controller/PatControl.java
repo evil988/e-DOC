@@ -30,4 +30,10 @@ public class PatControl implements Control<NewPat, PatTable>{
 	public PatTable getTabView() {
 		return PatTable.getInstance();
 	}
+
+	@Override
+	public String[][] tabRows() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
