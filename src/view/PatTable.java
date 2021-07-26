@@ -10,6 +10,8 @@ import javax.swing.table.DefaultTableModel;
 
 public class PatTable implements View{
 	
+	private static JFrame mf;
+	
 	private static JTabbedPane tabbedPane;
 	private static JScrollPane scrollPane;
 	private static JTable table;
@@ -26,10 +28,12 @@ public class PatTable implements View{
 		return pt;
 	}
 	
-	public void initialize(JFrame mw) {
-		if(table == null)
+	public void initialize(Object mw) {
+		if(table == null) {
+			mf = (JFrame) mw;
 			initComponents();
-		display(mw);
+		}
+		display();
 	}
 	
 	public void initComponents() {
@@ -45,14 +49,14 @@ public class PatTable implements View{
 			));
 	}
 	
-	public void display(JFrame mw) {
-		mw.getContentPane().removeAll();
-		mw.getContentPane().setLayout(new BorderLayout(0, 0));
-		mw.getContentPane().add(tabbedPane, BorderLayout.CENTER);
+	public void display() {
+		mf.getContentPane().removeAll();
+		mf.getContentPane().setLayout(new BorderLayout(0, 0));
+		mf.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		tabbedPane.addTab("Pacientes", null, scrollPane, null);		
 		scrollPane.setViewportView(table);
-		mw.getContentPane().revalidate();
-		mw.getContentPane().repaint();
+		mf.getContentPane().revalidate();
+		mf.getContentPane().repaint();
 	}
 
 }

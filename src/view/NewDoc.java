@@ -17,6 +17,8 @@ import controller.Front;
 
 public class NewDoc implements View{
 	
+	private static JFrame mf;
+	
 	private static JTextField textField;
 	private static JTextField textField_1;
 	private static JTextField textField_2;
@@ -55,10 +57,12 @@ public class NewDoc implements View{
 	
 	private NewDoc() {}
 	
-	public void initialize(JFrame mw) {
-		if (gbl_panel == null)
-			initComponents();
-		display(mw);
+	public void initialize(Object mw) {
+		if (gbl_panel == null) {
+			mf = (JFrame) mw;
+			initComponents();			
+		}
+		display();
 	}
 		
 	
@@ -157,21 +161,21 @@ public class NewDoc implements View{
 		panel_1.add(btnLimpar);	
 	}
 	
-	public void display(JFrame mw) {
-		mw.getContentPane().removeAll();
-		mw.getContentPane().setLayout(gbl_panel);
-		mw.getContentPane().add(lblCadastrarNovoMdico, gbc_lblCadastrarNovoMdico);
-		mw.getContentPane().add(lblNome, gbc_lblNome);
-		mw.getContentPane().add(textField, gbc_textField);
-		mw.getContentPane().add(lblCpf, gbc_lblCpf);
-		mw.getContentPane().add(textField_1, gbc_textField_1);
-		mw.getContentPane().add(lblEspecialidade, gbc_lblEspecialidade);
-		mw.getContentPane().add(textField_2, gbc_textField_2);
-		mw.getContentPane().add(lblCrm, gbc_lblCrm);
-		mw.getContentPane().add(textField_3, gbc_textField_3);
-		mw.getContentPane().add(panel_1, gbc_panel_1);
-		mw.getContentPane().revalidate();
-		mw.getContentPane().repaint();	
+	public void display() {		
+		mf.getContentPane().removeAll();
+		mf.getContentPane().setLayout(gbl_panel);
+		mf.getContentPane().add(lblCadastrarNovoMdico, gbc_lblCadastrarNovoMdico);
+		mf.getContentPane().add(lblNome, gbc_lblNome);
+		mf.getContentPane().add(textField, gbc_textField);
+		mf.getContentPane().add(lblCpf, gbc_lblCpf);
+		mf.getContentPane().add(textField_1, gbc_textField_1);
+		mf.getContentPane().add(lblEspecialidade, gbc_lblEspecialidade);
+		mf.getContentPane().add(textField_2, gbc_textField_2);
+		mf.getContentPane().add(lblCrm, gbc_lblCrm);
+		mf.getContentPane().add(textField_3, gbc_textField_3);
+		mf.getContentPane().add(panel_1, gbc_panel_1);
+		mf.getContentPane().revalidate();
+		mf.getContentPane().repaint();
 	}	
 	
 	private void clear() {

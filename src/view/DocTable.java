@@ -11,6 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import controller.Front;
 
 public class DocTable implements View{
+	private static JFrame mf;
 	
 	private static JTabbedPane tabbedPane;
 	private static JScrollPane scrollPane;
@@ -28,10 +29,12 @@ public class DocTable implements View{
 		return dc;
 	}
 	
-	public void initialize(JFrame mw) {
-		if(table == null)
+	public void initialize(Object mw) {
+		if(table == null) {
+			mf = (JFrame) mw;
 			initComponents();
-		display(mw);
+		}
+		display();
 	}
 	
 	public void initComponents() {
@@ -46,14 +49,14 @@ public class DocTable implements View{
 			));
 	}
 	
-	public void display(JFrame mw) {
-		mw.getContentPane().removeAll();
-		mw.getContentPane().setLayout(new BorderLayout(0, 0));
-		mw.getContentPane().add(tabbedPane, BorderLayout.CENTER);
+	public void display() {
+		mf.getContentPane().removeAll();
+		mf.getContentPane().setLayout(new BorderLayout(0, 0));
+		mf.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		tabbedPane.addTab("M\u00E9dicos", null, scrollPane, null);		
 		scrollPane.setViewportView(table);
-		mw.getContentPane().revalidate();
-		mw.getContentPane().repaint();
+		mf.getContentPane().revalidate();
+		mf.getContentPane().repaint();
 	}
 
 }

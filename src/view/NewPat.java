@@ -21,6 +21,8 @@ import controller.Front;
 
 public class NewPat implements View{
 	
+	private static JFrame mf;
+	
 	private static JTextField textField;	
 	private static JTextField textField_1;
 	private static JTextField textField_2;
@@ -76,10 +78,12 @@ public class NewPat implements View{
 		return np;
 	}
 	
-	public void initialize(JFrame mw) {
-		if (gridBagLayout == null)
+	public void initialize(Object mw) {
+		if (gridBagLayout == null) {
+			mf = (JFrame) mw;			
 			initComponents();
-		display(mw);
+		}
+		display();
 	}
 	
 	public void initComponents() {
@@ -235,31 +239,31 @@ public class NewPat implements View{
 		});
 	}
 	
-	public void display(JFrame mw) {
-		mw.getContentPane().removeAll();		
-		mw.getContentPane().setLayout(gridBagLayout);
-		mw.getContentPane().add(lblCadastrarPaciente, gbc_lblCadastrarPaciente);
-		mw.getContentPane().add(lblNome, gbc_lblNome);
-		mw.getContentPane().add(textField, gbc_textField);
-		mw.getContentPane().add(lblDataDeNascimento, gbc_lblDataDeNascimento);
-		mw.getContentPane().add(dateChooser, gbc_dateChooser);
-		mw.getContentPane().add(lblEndereo, gbc_lblEndereo);
-		mw.getContentPane().add(textField_1, gbc_textField_1);
-		mw.getContentPane().add(lblCpf, gbc_lblCpf);
-		mw.getContentPane().add(textField_2, gbc_textField_2);
-		mw.getContentPane().add(lblNAmbulatorial, gbc_lblNAmbulatorial);
-		mw.getContentPane().add(textField_3, gbc_textField_3);
-		mw.getContentPane().add(lblPossuiPlanoDe, gbc_lblPossuiPlanoDe);
-		mw.getContentPane().add(panel, gbc_panel);
+	public void display() {
+		mf.getContentPane().removeAll();		
+		mf.getContentPane().setLayout(gridBagLayout);
+		mf.getContentPane().add(lblCadastrarPaciente, gbc_lblCadastrarPaciente);
+		mf.getContentPane().add(lblNome, gbc_lblNome);
+		mf.getContentPane().add(textField, gbc_textField);
+		mf.getContentPane().add(lblDataDeNascimento, gbc_lblDataDeNascimento);
+		mf.getContentPane().add(dateChooser, gbc_dateChooser);
+		mf.getContentPane().add(lblEndereo, gbc_lblEndereo);
+		mf.getContentPane().add(textField_1, gbc_textField_1);
+		mf.getContentPane().add(lblCpf, gbc_lblCpf);
+		mf.getContentPane().add(textField_2, gbc_textField_2);
+		mf.getContentPane().add(lblNAmbulatorial, gbc_lblNAmbulatorial);
+		mf.getContentPane().add(textField_3, gbc_textField_3);
+		mf.getContentPane().add(lblPossuiPlanoDe, gbc_lblPossuiPlanoDe);
+		mf.getContentPane().add(panel, gbc_panel);
 		panel.add(rdbtnSim);
 		panel.add(rdbtnNo);
-		mw.getContentPane().add(lblNomeDoPlano, gbc_lblNomeDoPlano);
-		mw.getContentPane().add(textField_4, gbc_textField_4);
-		mw.getContentPane().add(panel_1, gbc_panel_1);
+		mf.getContentPane().add(lblNomeDoPlano, gbc_lblNomeDoPlano);
+		mf.getContentPane().add(textField_4, gbc_textField_4);
+		mf.getContentPane().add(panel_1, gbc_panel_1);
 		panel_1.add(btnSalvar);
 		panel_1.add(btnLimpar);
-		mw.getContentPane().revalidate();
-		mw.getContentPane().repaint();
+		mf.getContentPane().revalidate();
+		mf.getContentPane().repaint();
 	}
 	
 	private void clear() {
