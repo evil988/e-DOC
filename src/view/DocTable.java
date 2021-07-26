@@ -8,6 +8,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import controller.Front;
+
 public class DocTable implements View{
 	
 	private static JTabbedPane tabbedPane;
@@ -37,8 +39,7 @@ public class DocTable implements View{
 		scrollPane = new JScrollPane();
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
-				new Object[][] {
-				},
+				Front.getFront().getDocControl().tabRows(),
 				new String[] {
 					"Nome", "CPF", "Especialidade", "CRM"
 				}
