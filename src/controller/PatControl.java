@@ -36,4 +36,10 @@ public class PatControl implements Control{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void RecObs(Observer obs) {
+		// TODO Auto-generated method stub
+		
+	}
 }

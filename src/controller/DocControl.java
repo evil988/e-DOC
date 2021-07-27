@@ -36,4 +36,9 @@ public class DocControl implements Control{
 	public String[][] tabRows() {		
 		return DocList.getInstance().show();
 	}
+
+	@Override
+	public void RecObs(Observer obs) {
+		DocList.getInstance().register(obs);		
+	}
 }

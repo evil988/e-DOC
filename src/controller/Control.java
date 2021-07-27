@@ -5,4 +5,5 @@ public interface Control {
 	public String[][] tabRows();
 	public void RegView(Object mw);
 	public void TabView(Object mw);
+	public void RecObs(Observer obs);
 }
