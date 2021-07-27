@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 import controller.DocControl;
 
-public class DocTable implements View{
+public class DocTable implements View,Table{
 	private static JFrame mf;
 	
 	private static JTabbedPane tabbedPane;
