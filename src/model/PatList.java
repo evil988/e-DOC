@@ -2,12 +2,17 @@ package model;
 
 import java.util.ArrayList;
 
-public class PatList implements Dao<Pat>{
+import controller.Observable;
+import controller.Observer;
+
+public class PatList implements Dao<Pat>, Observable{
 	private static PatList pl;
 	private ArrayList<Pat> patlist;
+	private ArrayList<Observer> obslist;
 	
 	private PatList() {
 		patlist = new ArrayList<Pat>();
+		obslist = new ArrayList<Observer>();
 	};
 	
 	public static PatList getInstance() {
@@ -36,6 +41,23 @@ public class PatList implements Dao<Pat>{
 			rows[i][6] = pat.isPossuiPlano();
 		}
 		return rows;
+	}
+
+	@Override
+	public void register(Observer obs) {
+		obslist.add(obs);
+	}
+
+	@Override
+	public void unregister(Observer obs) {
+		obslist.remove(obs);
+	}
+
+	@Override
+	public void notifyObservers() {
+		for (Observer o : obslist) {
+			o.update();
+		}
 	}
 
 }
