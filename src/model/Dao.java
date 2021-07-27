@@ -1,6 +1,6 @@
 package model;
 
-public interface Dao<T1> {
-	public void add(T1 obj);
+public interface Dao<T> {
+	public void add(T obj);
 	public String[][] show();
 }
