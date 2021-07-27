@@ -2,17 +2,15 @@ package model;
 
 import java.util.ArrayList;
 
+import controller.DocControl;
 import controller.Observable;
-import controller.Observer;
 
 public class DocList implements Dao<Doc>, Observable{
 	private ArrayList<Doc> doclist;
 	private static DocList dl;
-	private ArrayList<Observer> obslist;
 	
 	private DocList() {
 		doclist = new ArrayList<Doc>();
-		obslist = new ArrayList<Observer>();
 	}
 	
 	public static DocList getInstance() {
@@ -24,7 +22,7 @@ public class DocList implements Dao<Doc>, Observable{
 	@Override
 	public void add(Doc obj) {
 		doclist.add(obj);
-		notifyObservers();
+		notifyObserver();
 	}
 
 	@Override
@@ -40,21 +38,9 @@ public class DocList implements Dao<Doc>, Observable{
 		}
 		return rows;
 	}
-
+	
 	@Override
-	public void register(Observer obs) {
-		obslist.add(obs);
-	}
-
-	@Override
-	public void unregister(Observer obs) {
-		obslist.remove(obs);
-	}
-
-	@Override
-	public void notifyObservers() {
-		for (Observer o : obslist) {
-			o.update();
-		}
+	public void notifyObserver() {
+		DocControl.getInstance().change();
 	}
 }

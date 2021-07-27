@@ -3,16 +3,14 @@ package model;
 import java.util.ArrayList;
 
 import controller.Observable;
-import controller.Observer;
+import controller.PatControl;
 
 public class PatList implements Dao<Pat>, Observable{
 	private static PatList pl;
 	private ArrayList<Pat> patlist;
-	private ArrayList<Observer> obslist;
 	
 	private PatList() {
 		patlist = new ArrayList<Pat>();
-		obslist = new ArrayList<Observer>();
 	};
 	
 	public static PatList getInstance() {
@@ -24,7 +22,8 @@ public class PatList implements Dao<Pat>, Observable{
 	
 	@Override
 	public void add(Pat obj) {
-		patlist.add(obj);		
+		patlist.add(obj);
+		notifyObserver();
 	}
 
 	@Override
@@ -42,22 +41,9 @@ public class PatList implements Dao<Pat>, Observable{
 		}
 		return rows;
 	}
-
+	
 	@Override
-	public void register(Observer obs) {
-		obslist.add(obs);
+	public void notifyObserver() {
+		PatControl.getInstance().change();		
 	}
-
-	@Override
-	public void unregister(Observer obs) {
-		obslist.remove(obs);
-	}
-
-	@Override
-	public void notifyObservers() {
-		for (Observer o : obslist) {
-			o.update();
-		}
-	}
-
 }
