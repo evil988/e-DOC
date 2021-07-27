@@ -13,6 +13,7 @@ public class Front implements Fac {
 		return front;
 	}
 	
+	@Override
 	public Control redirect(int type) {
 		if (type == PATIENT)
 			return PatControl.getInstance();

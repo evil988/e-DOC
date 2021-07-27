@@ -78,6 +78,7 @@ public class NewPat implements View{
 		return np;
 	}
 	
+	@Override
 	public void initialize(Object mw) {
 		if (gridBagLayout == null) {
 			mf = (JFrame) mw;			
@@ -86,6 +87,7 @@ public class NewPat implements View{
 		display();
 	}
 	
+	@Override
 	public void initComponents() {
 		gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] {30, 30, 30, 30};
@@ -239,6 +241,7 @@ public class NewPat implements View{
 		});
 	}
 	
+	@Override
 	public void display() {
 		mf.getContentPane().removeAll();		
 		mf.getContentPane().setLayout(gridBagLayout);

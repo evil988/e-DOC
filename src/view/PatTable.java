@@ -36,6 +36,7 @@ public class PatTable implements View{
 		display();
 	}
 	
+	@Override
 	public void initComponents() {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		scrollPane = new JScrollPane();
@@ -49,6 +50,7 @@ public class PatTable implements View{
 			));
 	}
 	
+	@Override
 	public void display() {
 		mf.getContentPane().removeAll();
 		mf.getContentPane().setLayout(new BorderLayout(0, 0));

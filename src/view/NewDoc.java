@@ -57,6 +57,7 @@ public class NewDoc implements View{
 	
 	private NewDoc() {}
 	
+	@Override
 	public void initialize(Object mw) {
 		if (gbl_panel == null) {
 			mf = (JFrame) mw;
@@ -65,7 +66,7 @@ public class NewDoc implements View{
 		display();
 	}
 		
-	
+	@Override
 	public void initComponents() {
 		gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[] {30, 30, 30, 0, 30};
@@ -161,6 +162,7 @@ public class NewDoc implements View{
 		panel_1.add(btnLimpar);	
 	}
 	
+	@Override
 	public void display() {		
 		mf.getContentPane().removeAll();
 		mf.getContentPane().setLayout(gbl_panel);

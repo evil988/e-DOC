@@ -11,13 +11,13 @@ public class Pat {
 	private String possuiPlano;
 	
 	public Pat(String nome, String dataDeNascimento, String endereco, String cpf, String nAmbulatorial, String possuiPlano, String nomePlano) {
-		this.nome							= nome;
-		this.dataDeNascimento	= dataDeNascimento;		
-		this.endereco					= endereco;
-		this.cpf							= cpf;
-		this.nAmbulatorial		= nAmbulatorial;
-		this.possuiPlano			= possuiPlano;
-		this.nomePlano				= nomePlano;
+		this.nome = nome;
+		this.dataDeNascimento = dataDeNascimento;		
+		this.endereco = endereco;
+		this.cpf = cpf;
+		this.nAmbulatorial = nAmbulatorial;
+		this.possuiPlano = possuiPlano;
+		this.nomePlano = nomePlano;
 	}
 
 	public String getNome() {

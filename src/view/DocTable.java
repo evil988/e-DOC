@@ -30,6 +30,7 @@ public class DocTable implements View, Table, Observer{
 		return dc;
 	}
 	
+	@Override
 	public void initialize(Object mw) {
 		if(mf == null) {
 			mf = (JFrame) mw;
@@ -38,24 +39,25 @@ public class DocTable implements View, Table, Observer{
 		display();
 	}
 	
+	@Override
 	public void initComponents() {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		scrollPane = new JScrollPane();
-		//table = new JTable();
-		//tableUpdate();
+		tableUpdate();
 	}
 	
+	@Override
 	public void display() {
 		mf.getContentPane().removeAll();
 		mf.getContentPane().setLayout(new BorderLayout(0, 0));
 		mf.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		tabbedPane.addTab("M\u00E9dicos", null, scrollPane, null);		
 		scrollPane.setViewportView(table);
-		//tableUpdate();
 		mf.getContentPane().revalidate();
 		mf.getContentPane().repaint();
 	}
 	
+	@Override
 	public void tableUpdate() {
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
