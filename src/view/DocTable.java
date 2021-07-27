@@ -59,7 +59,8 @@ public class DocTable implements View, Table, Observer{
 	
 	@Override
 	public void tableUpdate() {
-		table = new JTable();
+		if (table == null)
+			table = new JTable();
 		table.setModel(new DefaultTableModel(
 				DocControl.getInstance().tabRows(),
 				new String[] {
