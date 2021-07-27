@@ -1,6 +1,7 @@
 package controller;
 
-public class Front implements Facade {	
+public class Front implements Fac {
+	private static final int PATIENT = 0, DOCTOR = 1;
 	
 	private static Front front;
 	
@@ -10,14 +11,16 @@ public class Front implements Facade {
 		if (front == null)
 			front = new Front();
 		return front;
-	}	
-	
-	public PatControl getPatControl() {
-		return PatControl.getInstance();
 	}
 	
-	public DocControl getDocControl() {
-		return DocControl.getInstance();
+	public Control redirect(int type) {
+		if (type == PATIENT)
+			return PatControl.getInstance();
+		else
+			if (type == DOCTOR)
+				return DocControl.getInstance();
+			else
+				return null;
 	}
 
 }
