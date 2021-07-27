@@ -35,15 +35,10 @@ public class DocControl implements Control{
 	@Override
 	public String[][] tabRows() {		
 		return DocList.getInstance().show();
-	}
+	}	
 
 	@Override
-	public void recObs(Observer obs) {
-		DocList.getInstance().register(obs);		
-	}
-
-	@Override
-	public void unRegObs(Observer o) {
-		DocList.getInstance().unregister(o);
+	public void change() {
+		DocTable.getInstance().update();	
 	}
 }

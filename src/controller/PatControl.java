@@ -9,9 +9,7 @@ public class PatControl implements Control{
 	
 	private static PatControl pc;
 	
-	private PatControl(){
-		
-	}
+	private PatControl(){}
 	
 	public static PatControl getInstance() {
 		if (pc == null)
@@ -36,15 +34,10 @@ public class PatControl implements Control{
 	@Override
 	public String[][] tabRows() {
 		return PatList.getInstance().show();
-	}
+	}	
 
 	@Override
-	public void recObs(Observer o) {
-		PatList.getInstance().register(o);		
-	}
-
-	@Override
-	public void unRegObs(Observer o) {
-		PatList.getInstance().unregister(o);		
+	public void change() {
+		PatTable.getInstance().update();	
 	}	
 }
