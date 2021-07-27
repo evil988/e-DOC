@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import controller.Observer;
 import controller.PatControl;
 
-public class PatTable implements View, Table, Observer {
+public class PatTable implements View, Observer {
 	
 	private static JFrame mf;
 	
@@ -28,7 +28,7 @@ public class PatTable implements View, Table, Observer {
 	public static PatTable getInstance() {
 		if (mf == null) {
 			pt = new PatTable();
-			PatControl.getInstance().recObs(pt);
+			//PatControl.getInstance().register(pt);
 		}
 		return pt;
 	}
@@ -45,7 +45,7 @@ public class PatTable implements View, Table, Observer {
 	public void initComponents() {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		scrollPane = new JScrollPane();
-		tableUpdate();
+		update();
 	}
 	
 	@Override
@@ -60,7 +60,7 @@ public class PatTable implements View, Table, Observer {
 	}
 
 	@Override
-	public void tableUpdate() {
+	public void update() {
 		if (table == null)
 			table = new JTable();
 		table.setModel(new DefaultTableModel(
@@ -69,10 +69,5 @@ public class PatTable implements View, Table, Observer {
 						"Nome", "Data de Nascimento", "Endere\u00E7o", "CPF", "N\u00BA ambulatorial", "Plano de sa\u00FAde?", "Nome do plano de sa\u00FAde"
 				}
 			));						
-	}
-
-	@Override
-	public void update() {
-		tableUpdate();		
-	}
+	}	
 }

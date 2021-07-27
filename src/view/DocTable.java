@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import controller.DocControl;
 import controller.Observer;
 
-public class DocTable implements View, Table, Observer{
+public class DocTable implements View, Observer{
 	private static JFrame mf;
 	
 	private static JTabbedPane tabbedPane;
@@ -25,7 +25,7 @@ public class DocTable implements View, Table, Observer{
 	public static DocTable getInstance() {
 		if (tabbedPane == null) {
 			dc = new DocTable();
-			DocControl.getInstance().recObs(dc);
+			//DocControl.getInstance().register(dc);
 		}
 		return dc;
 	}
@@ -43,7 +43,7 @@ public class DocTable implements View, Table, Observer{
 	public void initComponents() {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		scrollPane = new JScrollPane();
-		tableUpdate();
+		update();
 	}
 	
 	@Override
@@ -58,7 +58,7 @@ public class DocTable implements View, Table, Observer{
 	}
 	
 	@Override
-	public void tableUpdate() {
+	public void update() {
 		if (table == null)
 			table = new JTable();
 		table.setModel(new DefaultTableModel(
@@ -68,10 +68,4 @@ public class DocTable implements View, Table, Observer{
 				}
 			));
 	}
-
-	@Override
-	public void update() {
-		tableUpdate();
-	}
-
 }
