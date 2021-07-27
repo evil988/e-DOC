@@ -41,12 +41,7 @@ public class DocTable implements View{
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		scrollPane = new JScrollPane();
 		table = new JTable();
-		table.setModel(new DefaultTableModel(
-				DocControl.getInstance().tabRows(),
-				new String[] {
-					"Nome", "CPF", "Especialidade", "CRM"
-				}
-			));
+		tableUpdate();
 	}
 	
 	public void display() {
@@ -55,8 +50,18 @@ public class DocTable implements View{
 		mf.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		tabbedPane.addTab("M\u00E9dicos", null, scrollPane, null);		
 		scrollPane.setViewportView(table);
+		tableUpdate();
 		mf.getContentPane().revalidate();
 		mf.getContentPane().repaint();
+	}
+	
+	public void tableUpdate() {
+		table.setModel(new DefaultTableModel(
+				DocControl.getInstance().tabRows(),
+				new String[] {
+					"Nome", "CPF", "Especialidade", "CRM"
+				}
+			));
 	}
 
 }
