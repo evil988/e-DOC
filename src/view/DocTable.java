@@ -9,8 +9,9 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import controller.DocControl;
+import controller.Observer;
 
-public class DocTable implements View,Table{
+public class DocTable implements View, Table, Observer{
 	private static JFrame mf;
 	
 	private static JTabbedPane tabbedPane;
@@ -19,18 +20,18 @@ public class DocTable implements View,Table{
 	
 	private static DocTable dc;
 	
-	private DocTable() {
-		
-	}
+	private DocTable() {}
 	
 	public static DocTable getInstance() {
-		if (tabbedPane == null)
+		if (tabbedPane == null) {
 			dc = new DocTable();
+			DocControl.getInstance().RecObs(dc);
+		}
 		return dc;
 	}
 	
 	public void initialize(Object mw) {
-		if(table == null) {
+		if(mf == null) {
 			mf = (JFrame) mw;
 			initComponents();
 		}
@@ -40,8 +41,8 @@ public class DocTable implements View,Table{
 	public void initComponents() {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		scrollPane = new JScrollPane();
-		table = new JTable();
-		tableUpdate();
+		//table = new JTable();
+		//tableUpdate();
 	}
 	
 	public void display() {
@@ -50,18 +51,24 @@ public class DocTable implements View,Table{
 		mf.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		tabbedPane.addTab("M\u00E9dicos", null, scrollPane, null);		
 		scrollPane.setViewportView(table);
-		tableUpdate();
+		//tableUpdate();
 		mf.getContentPane().revalidate();
 		mf.getContentPane().repaint();
 	}
 	
 	public void tableUpdate() {
+		table = new JTable();
 		table.setModel(new DefaultTableModel(
 				DocControl.getInstance().tabRows(),
 				new String[] {
 					"Nome", "CPF", "Especialidade", "CRM"
 				}
 			));
+	}
+
+	@Override
+	public void update() {
+		tableUpdate();
 	}
 
 }

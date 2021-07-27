@@ -2,6 +2,6 @@ package controller;
 
 public interface Observer {
 	
-	public void update(Observable ob);
+	public void update();
 
 }
