@@ -8,7 +8,10 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class PatTable implements View{
+import controller.Observer;
+import controller.PatControl;
+
+public class PatTable implements View, Table, Observer {
 	
 	private static JFrame mf;
 	
@@ -23,8 +26,10 @@ public class PatTable implements View{
 	}
 	
 	public static PatTable getInstance() {
-		if (tabbedPane == null)
+		if (mf == null) {
 			pt = new PatTable();
+			PatControl.getInstance().recObs(pt);
+		}
 		return pt;
 	}
 	
@@ -40,14 +45,7 @@ public class PatTable implements View{
 	public void initComponents() {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		scrollPane = new JScrollPane();
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-				new Object[][] {
-				},
-				new String[] {
-						"Nome", "Data de Nascimento", "Endere\u00E7o", "CPF", "N\u00BA ambulatorial", "Plano de sa\u00FAde?", "Nome do plano de sa\u00FAde"
-				}
-			));
+		tableUpdate();
 	}
 	
 	@Override
@@ -61,4 +59,20 @@ public class PatTable implements View{
 		mf.getContentPane().repaint();
 	}
 
+	@Override
+	public void tableUpdate() {
+		if (table == null)
+			table = new JTable();
+		table.setModel(new DefaultTableModel(
+				PatControl.getInstance().tabRows(),
+				new String[] {
+						"Nome", "Data de Nascimento", "Endere\u00E7o", "CPF", "N\u00BA ambulatorial", "Plano de sa\u00FAde?", "Nome do plano de sa\u00FAde"
+				}
+			));						
+	}
+
+	@Override
+	public void update() {
+		tableUpdate();		
+	}
 }
