@@ -47,5 +47,4 @@ public class Pat {
 	public String isPossuiPlano() {
 		return possuiPlano;
 	}
-
 }

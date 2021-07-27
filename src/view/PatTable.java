@@ -28,7 +28,6 @@ public class PatTable implements View, Observer {
 	public static PatTable getInstance() {
 		if (mf == null) {
 			pt = new PatTable();
-			//PatControl.getInstance().register(pt);
 		}
 		return pt;
 	}

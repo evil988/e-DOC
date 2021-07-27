@@ -25,7 +25,6 @@ public class DocTable implements View, Observer{
 	public static DocTable getInstance() {
 		if (tabbedPane == null) {
 			dc = new DocTable();
-			//DocControl.getInstance().register(dc);
 		}
 		return dc;
 	}

@@ -1,7 +1,5 @@
 package controller;
 
-public interface Observer {
-	
+public interface Observer {	
 	public void update();
-
 }
