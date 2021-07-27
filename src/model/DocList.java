@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import controller.Observable;
 import controller.Observer;
 
-public class DocList implements Dao<Doc, String[][]>, Observable{
+public class DocList implements Dao<Doc>, Observable{
 	private ArrayList<Doc> doclist;
 	private static DocList dl;
 	private ArrayList<Observer> obslist;
@@ -44,8 +44,6 @@ public class DocList implements Dao<Doc, String[][]>, Observable{
 	@Override
 	public void register(Observer obs) {
 		obslist.add(obs);
-		System.out.println("add" + obs);
-		notifyObservers();
 	}
 
 	@Override
