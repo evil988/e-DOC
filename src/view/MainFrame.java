@@ -32,7 +32,7 @@ public class MainFrame{
 		JMenuItem mntmCadastrarPaciente = new JMenuItem("Cadastrar Paciente");
 		mntmCadastrarPaciente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Front.getFront().redirect(0).RegView(mw);
+				Front.getFront().redirect(0).regView(mw);
 			}
 		});
 		mnCadastrar.add(mntmCadastrarPaciente);
@@ -40,7 +40,7 @@ public class MainFrame{
 		JMenuItem mntmCadastrarMdico = new JMenuItem("Cadastrar M\u00E9dico");
 		mntmCadastrarMdico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Front.getFront().redirect(1).RegView(mw);
+				Front.getFront().redirect(1).regView(mw);
 			}
 		});
 		mnCadastrar.add(mntmCadastrarMdico);		
@@ -61,7 +61,7 @@ public class MainFrame{
 		JMenuItem mntmListarPacientes = new JMenuItem("Listar Pacientes");
 		mntmListarPacientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Front.getFront().redirect(0).TabView(mw);
+				Front.getFront().redirect(0).tabView(mw);
 			}
 		});
 		mnListar.add(mntmListarPacientes);
@@ -69,7 +69,7 @@ public class MainFrame{
 		JMenuItem mntmListarMdicos = new JMenuItem("Listar M\u00E9dicos");
 		mntmListarMdicos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Front.getFront().redirect(1).TabView(mw);
+				Front.getFront().redirect(1).tabView(mw);
 			}
 		});
 		mnListar.add(mntmListarMdicos);

@@ -1,5 +1,6 @@
 package controller;
 
+import model.PatList;
 import view.NewPat;
 import view.PatTable;
 
@@ -22,24 +23,27 @@ public class PatControl implements Control{
 	}
 
 	@Override
-	public void RegView(Object mw) {
+	public void regView(Object mw) {
 		NewPat.getInstance().initialize(mw);
 	}
 
 	@Override
-	public void TabView(Object mw) {
+	public void tabView(Object mw) {
 		PatTable.getInstance().initialize(mw);
 	}
 
 	@Override
 	public String[][] tabRows() {
-		// TODO Auto-generated method stub
-		return null;
+		return PatList.getInstance().show();
 	}
 
 	@Override
-	public void RecObs(Observer obs) {
-		// TODO Auto-generated method stub
-		
+	public void recObs(Observer o) {
+		PatList.getInstance().register(o);		
 	}
+
+	@Override
+	public void unRegObs(Observer o) {
+		PatList.getInstance().unregister(o);		
+	}	
 }

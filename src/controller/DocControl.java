@@ -23,12 +23,12 @@ public class DocControl implements Control{
 	}	
 
 	@Override
-	public void RegView(Object mw) {
+	public void regView(Object mw) {
 		NewDoc.getInstance().initialize(mw);
 	}
 
 	@Override
-	public void TabView(Object mw) {
+	public void tabView(Object mw) {
 		DocTable.getInstance().initialize(mw);
 	}
 
@@ -38,7 +38,12 @@ public class DocControl implements Control{
 	}
 
 	@Override
-	public void RecObs(Observer obs) {
+	public void recObs(Observer obs) {
 		DocList.getInstance().register(obs);		
+	}
+
+	@Override
+	public void unRegObs(Observer o) {
+		DocList.getInstance().unregister(o);
 	}
 }
