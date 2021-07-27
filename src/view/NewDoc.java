@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import controller.Front;
+import controller.DocControl;
 
 public class NewDoc implements View{
 	
@@ -146,7 +146,7 @@ public class NewDoc implements View{
 		btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Front.getFront().getDocControl().save(new String[]{textField.getText(), textField_1.getText(),
+				DocControl.getInstance().save(new String[]{textField.getText(), textField_1.getText(),
 						textField_2.getText(), textField_3.getText()});
 			}
 		});	

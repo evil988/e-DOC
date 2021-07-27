@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 
 import com.toedter.calendar.JDateChooser;
 
-import controller.Front;
+import controller.PatControl;
 
 public class NewPat implements View{
 	
@@ -221,7 +221,7 @@ public class NewPat implements View{
 		btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Front.getFront().getPatControl().save(new String[]{textField.getText(), 
+				PatControl.getInstance().save(new String[]{textField.getText(), 
 						new SimpleDateFormat("dd-MM-yyyy").format(dateChooser.getDate()), 
 						textField_1.getText(), 
 						textField_2.getText(), 
