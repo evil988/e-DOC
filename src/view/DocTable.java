@@ -9,7 +9,6 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import controller.DocControl;
-import controller.Observer;
 
 public class DocTable implements View, Observer{
 	private static JFrame mf;

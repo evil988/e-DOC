@@ -8,7 +8,6 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import controller.Observer;
 import controller.PatControl;
 
 public class PatTable implements View, Observer {
