@@ -8,7 +8,9 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class ConTable implements View{
+import controller.ConControl;
+
+public class ConTable implements View, Observer{
 	private static ConTable ct;
 	private static JFrame mf; 
 	private static JScrollPane scrollPane;
@@ -35,15 +37,7 @@ public class ConTable implements View{
 	@Override
 	public void initComponents() {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		scrollPane = new JScrollPane();
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-				new Object[][] {
-				},
-				new String[] {
-					"Paciente", "M\u00E9dico", "Data", "Hor\u00E1rio"
-				}
-			));
+		scrollPane = new JScrollPane();		
 	}
 
 	@Override
@@ -55,5 +49,17 @@ public class ConTable implements View{
 		scrollPane.setViewportView(table);	
 		mf.getContentPane().revalidate();
 		mf.getContentPane().repaint();
+	}
+
+	@Override
+	public void update() {
+		if (table == null)
+			table = new JTable();
+		table.setModel(new DefaultTableModel(
+				ConControl.getInstance().tabRows(),
+				new String[] {
+					"Paciente", "M\u00E9dico", "Data", "Hor\u00E1rio"
+				}
+			));
 	}
 }
