@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 
 import com.toedter.calendar.JDateChooser;
 
+import controller.ConControl;
 import controller.DocControl;
 import controller.PatControl;
 
@@ -146,6 +147,11 @@ public class NewCon implements View, Observer{
 		btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ConControl.getInstance().save(new String[] {String.valueOf(comboBox.getSelectedItem()),
+						String.valueOf(comboBox_1.getSelectedItem()),
+						String.valueOf(comboBox_2.getSelectedItem()),
+						String.valueOf(comboBox_3.getSelectedItem())
+				});
 			}
 		});
 		panel.add(btnSalvar);	
@@ -153,6 +159,7 @@ public class NewCon implements View, Observer{
 		btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				clear();
 			}
 		});
 		panel.add(btnLimpar);
@@ -188,5 +195,13 @@ public class NewCon implements View, Observer{
 		for (String[] docname : DocControl.getInstance().tabRows()) {
 			comboBox_1.addItem(docname[0]);
 		}		
+	}
+	
+	private void clear() {		
+		comboBox.setSelectedIndex(-1);
+		comboBox_1.setSelectedIndex(-1);
+		comboBox_2.setSelectedIndex(-1);
+		comboBox_3.setSelectedIndex(-1);
+		dateChooser.setDate(null);
 	}
 }
