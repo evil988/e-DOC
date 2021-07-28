@@ -6,6 +6,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -147,10 +149,11 @@ public class NewCon implements View, Observer{
 		btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ConControl.getInstance().save(new String[] {String.valueOf(comboBox.getSelectedItem()),
+				ConControl.getInstance().save(new String[] {
+						String.valueOf(comboBox.getSelectedItem()),
 						String.valueOf(comboBox_1.getSelectedItem()),
-						String.valueOf(comboBox_2.getSelectedItem()),
-						String.valueOf(comboBox_3.getSelectedItem())
+						new SimpleDateFormat("dd-MM-yyyy").format(dateChooser.getDate()),
+						String.valueOf(comboBox_2.getSelectedItem())+":"+	String.valueOf(comboBox_3.getSelectedItem())
 				});
 			}
 		});
@@ -185,16 +188,18 @@ public class NewCon implements View, Observer{
 
 	@Override
 	public void update() {
-		comboBox.removeAllItems();
-		comboBox_1.removeAllItems();
-		
-		for(String[] patname : PatControl.getInstance().tabRows()) {
-			comboBox.addItem(patname[0]);
+		try {
+			comboBox.removeAllItems();
+			comboBox_1.removeAllItems();
+			for(String[] patname : PatControl.getInstance().tabRows()) {
+				comboBox.addItem(patname[0]);
+			}
+			
+			for (String[] docname : DocControl.getInstance().tabRows()) {
+				comboBox_1.addItem(docname[0]);
+			}		
 		}
-		
-		for (String[] docname : DocControl.getInstance().tabRows()) {
-			comboBox_1.addItem(docname[0]);
-		}		
+		catch(Exception e) {}
 	}
 	
 	private void clear() {		
