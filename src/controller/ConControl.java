@@ -24,8 +24,7 @@ public class ConControl implements Control{
 
 	@Override
 	public String[][] tabRows() {
-		// TODO Auto-generated method stub
-		return null;
+		return ConList.getInstance().show();		
 	}
 
 	@Override
@@ -40,7 +39,8 @@ public class ConControl implements Control{
 
 	@Override
 	public void change() {
-		NewCon.getInstance().update();	
+		NewCon.getInstance().update();
+		ConTable.getInstance().update();
 	}
 
 }
