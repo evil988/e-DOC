@@ -37,14 +37,15 @@ public class ConTable implements View, Observer{
 	@Override
 	public void initComponents() {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		scrollPane = new JScrollPane();		
+		scrollPane = new JScrollPane();
+		update();
 	}
 
 	@Override
 	public void display() {
 		mf.getContentPane().removeAll();
 		mf.getContentPane().setLayout(new BorderLayout(0, 0));
-		mf.getContentPane().add(scrollPane, BorderLayout.CENTER);		
+		mf.getContentPane().add(tabbedPane, BorderLayout.CENTER);		
 		tabbedPane.addTab("Consultas", null, scrollPane, null);
 		scrollPane.setViewportView(table);	
 		mf.getContentPane().revalidate();
