@@ -1,7 +1,7 @@
 package controller;
 
 public class Front implements Fac {
-	private static final int PATIENT = 0, DOCTOR = 1;
+	private static final int PATIENT = 0, DOCTOR = 1, CONSULTATION = 2;
 	
 	private static Front front;
 	
@@ -20,6 +20,9 @@ public class Front implements Fac {
 		else
 			if (type == DOCTOR)
 				return DocControl.getInstance();
+			else
+				if (type == CONSULTATION)
+					return ConControl.getInstance();
 			else
 				return null;
 	}
