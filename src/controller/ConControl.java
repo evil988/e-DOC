@@ -1,5 +1,6 @@
 package controller;
 
+import view.ConTable;
 import view.NewCon;
 
 public class ConControl implements Control{
@@ -33,8 +34,7 @@ public class ConControl implements Control{
 
 	@Override
 	public void tabView(Object mw) {
-		// TODO Auto-generated method stub
-		
+		ConTable.getInstance().initialize(mw);
 	}
 
 	@Override
