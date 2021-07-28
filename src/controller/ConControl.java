@@ -39,8 +39,7 @@ public class ConControl implements Control{
 
 	@Override
 	public void change() {
-		// TODO Auto-generated method stub
-		
+		NewCon.getInstance().update();	
 	}
 
 }
