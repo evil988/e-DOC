@@ -32,7 +32,7 @@ public class PatTable implements View, Observer {
 	}
 	
 	public void initialize(Object mw) {
-		if(table == null) {
+		if(mf == null) {
 			mf = (JFrame) mw;
 			initComponents();
 		}
