@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
+import controller.ConControl;
 import controller.PatControl;
 
 public class PatList implements Dao<Pat>, Observable{
@@ -44,6 +45,7 @@ public class PatList implements Dao<Pat>, Observable{
 	
 	@Override
 	public void notifyObserver() {
-		PatControl.getInstance().change();		
+		PatControl.getInstance().change();
+		ConControl.getInstance().change();
 	}
 }

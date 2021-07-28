@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
+import controller.ConControl;
 import controller.DocControl;
 
 public class DocList implements Dao<Doc>, Observable{
@@ -41,5 +42,6 @@ public class DocList implements Dao<Doc>, Observable{
 	@Override
 	public void notifyObserver() {
 		DocControl.getInstance().change();
+		ConControl.getInstance().change();
 	}
 }
