@@ -2,7 +2,6 @@ package model;
 
 import java.util.ArrayList;
 
-import controller.Observable;
 import controller.PatControl;
 
 public class PatList implements Dao<Pat>, Observable{

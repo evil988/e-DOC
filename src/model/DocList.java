@@ -3,7 +3,6 @@ package model;
 import java.util.ArrayList;
 
 import controller.DocControl;
-import controller.Observable;
 
 public class DocList implements Dao<Doc>, Observable{
 	private ArrayList<Doc> doclist;
