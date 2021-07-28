@@ -14,7 +14,10 @@ import javax.swing.JPanel;
 
 import com.toedter.calendar.JDateChooser;
 
-public class NewCon implements View{
+import controller.DocControl;
+import controller.PatControl;
+
+public class NewCon implements View, Observer{
 	private static JFrame mf;	
 	private static GridBagLayout gridBagLayout;
 	private static JLabel lblMarcarConsulta;
@@ -84,7 +87,9 @@ public class NewCon implements View{
 		gbc_comboBox.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox.gridx = 3;
-		gbc_comboBox.gridy = 1;		
+		gbc_comboBox.gridy = 1;
+		
+		
 		
 		lblMdico = new JLabel("M\u00E9dico");
 		gbc_lblMdico = new GridBagConstraints();
@@ -151,6 +156,8 @@ public class NewCon implements View{
 			}
 		});
 		panel.add(btnLimpar);
+		
+		update();
 	}
 
 	@Override
@@ -167,5 +174,19 @@ public class NewCon implements View{
 		mf.getContentPane().add(panel, gbc_panel);		
 		mf.getContentPane().revalidate();
 		mf.getContentPane().repaint();		
+	}
+
+	@Override
+	public void update() {
+		comboBox.removeAllItems();
+		comboBox_1.removeAllItems();
+		
+		for(String[] patname : PatControl.getInstance().tabRows()) {
+			comboBox.addItem(patname[0]);
+		}
+		
+		for (String[] docname : DocControl.getInstance().tabRows()) {
+			comboBox_1.addItem(docname[0]);
+		}		
 	}
 }
