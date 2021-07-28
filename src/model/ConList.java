@@ -2,7 +2,9 @@ package model;
 
 import java.util.ArrayList;
 
-public class ConList implements Dao<Consultation>{
+import controller.ConControl;
+
+public class ConList implements Dao<Consultation>, Observable{
 	private ArrayList<Consultation> conList;
 	private ConList cl;
 	
@@ -19,6 +21,7 @@ public class ConList implements Dao<Consultation>{
 	@Override
 	public void add(Consultation obj) {
 		conList.add(obj);
+		notifyObserver();
 	}
 
 	@Override
@@ -33,5 +36,10 @@ public class ConList implements Dao<Consultation>{
 			i++;
 		}
 		return rows;
+	}
+
+	@Override
+	public void notifyObserver() {
+		ConControl.getInstance().change();		
 	}
 }
