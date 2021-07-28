@@ -6,13 +6,13 @@ import controller.ConControl;
 
 public class ConList implements Dao<Consultation>, Observable{
 	private ArrayList<Consultation> conList;
-	private ConList cl;
+	private static ConList cl;
 	
 	private ConList() {
 		conList = new ArrayList<Consultation>();
 	}
 	
-	public ConList getInstance() {
+	public static ConList getInstance() {
 		if (cl == null) 
 			cl = new ConList();
 		return cl;
