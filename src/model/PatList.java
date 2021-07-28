@@ -37,6 +37,7 @@ public class PatList implements Dao<Pat>, Observable{
 			rows[i][4] = pat.getnAmbulatorial();
 			rows[i][5] = pat.isPossuiPlano();
 			rows[i][6] = pat.getNomePlano();
+			i++;
 		}
 		return rows;
 	}
