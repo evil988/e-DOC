@@ -48,9 +48,10 @@ public class MainFrame{
 		JMenu mnConsultar = new JMenu("Consultar");
 		menuBar.add(mnConsultar);
 		
-		JMenuItem mntmEfetuarConsulta = new JMenuItem("Efetuar Consulta");
+		JMenuItem mntmEfetuarConsulta = new JMenuItem("Marcar Consulta");
 		mntmEfetuarConsulta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Front.getFront().redirect(2).regView(mw);
 			}
 		});
 		mnConsultar.add(mntmEfetuarConsulta);
@@ -77,10 +78,11 @@ public class MainFrame{
 		JMenuItem mntmListarConsultas = new JMenuItem("Listar Consultas");
 		mntmListarConsultas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Front.getFront().redirect(2).tabView(mw);
 			}
 		});
 		mnListar.add(mntmListarConsultas);
-				
+		
 		mw.setVisible(true);
 		
 	}
