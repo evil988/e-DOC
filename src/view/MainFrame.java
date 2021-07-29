@@ -11,79 +11,93 @@ import javax.swing.WindowConstants;
 
 import controller.Front;
 
-public class MainFrame{
+public class MainFrame implements View{
+	private static JFrame mw;
+	private static JMenuBar menuBar;
+	private static JMenu mnCadastrar;
+	private static JMenuItem mntmCadastrarPaciente;
+	private static JMenuItem mntmCadastrarMdico;
+	private static JMenu mnConsultar;
+	private static JMenuItem mntmEfetuarConsulta;
+	private static JMenu mnListar;
+	private static JMenuItem mntmListarPacientes;
+	private static JMenuItem mntmListarMdicos;
+	private static JMenuItem mntmListarConsultas;
 	
 	public static void main(String[] args) {
 		new MainFrame();
-	}
+	}	
 	
-	public MainFrame() {
+	private MainFrame() {
+		initialize(mw);
+	}
+
+	@Override
+	public void initialize(Object mw) {
+		initComponents();
+		display();
 		
-		JFrame mw = new JFrame("e-DOC");
-		mw.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-		mw.setBounds(0, 0, 600, 350);			
-			
-		JMenuBar menuBar = new JMenuBar();
-		mw.setJMenuBar(menuBar);
-		
-		JMenu mnCadastrar = new JMenu("Cadastrar");
+	}
+
+	@Override
+	public void initComponents() {
+		mw = new JFrame("e-DOC");
+		menuBar = new JMenuBar();
+		mnCadastrar = new JMenu("Cadastrar");
 		menuBar.add(mnCadastrar);
-		
-		JMenuItem mntmCadastrarPaciente = new JMenuItem("Cadastrar Paciente");
+		mntmCadastrarPaciente = new JMenuItem("Cadastrar Paciente");
 		mntmCadastrarPaciente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Front.getFront().redirect(0).regView(mw);
 			}
 		});
 		mnCadastrar.add(mntmCadastrarPaciente);
-		
-		JMenuItem mntmCadastrarMdico = new JMenuItem("Cadastrar M\u00E9dico");
+		mntmCadastrarMdico = new JMenuItem("Cadastrar M\u00E9dico");
 		mntmCadastrarMdico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Front.getFront().redirect(1).regView(mw);
 			}
 		});
-		mnCadastrar.add(mntmCadastrarMdico);		
-		
-		JMenu mnConsultar = new JMenu("Consultar");
+		mnCadastrar.add(mntmCadastrarMdico);
+		mnConsultar = new JMenu("Consulta");
 		menuBar.add(mnConsultar);
-		
-		JMenuItem mntmEfetuarConsulta = new JMenuItem("Marcar Consulta");
+		mntmEfetuarConsulta = new JMenuItem("Marcar Consulta");
 		mntmEfetuarConsulta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Front.getFront().redirect(2).regView(mw);
 			}
 		});
 		mnConsultar.add(mntmEfetuarConsulta);
-		
-		JMenu mnListar = new JMenu("Listar");
+		mnListar = new JMenu("Listar");
 		menuBar.add(mnListar);
-		
-		JMenuItem mntmListarPacientes = new JMenuItem("Listar Pacientes");
+		mntmListarPacientes = new JMenuItem("Listar Pacientes");
 		mntmListarPacientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Front.getFront().redirect(0).tabView(mw);
 			}
 		});
 		mnListar.add(mntmListarPacientes);
-		
-		JMenuItem mntmListarMdicos = new JMenuItem("Listar M\u00E9dicos");
+		mntmListarMdicos = new JMenuItem("Listar M\u00E9dicos");
 		mntmListarMdicos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Front.getFront().redirect(1).tabView(mw);
 			}
 		});
 		mnListar.add(mntmListarMdicos);
-		
-		JMenuItem mntmListarConsultas = new JMenuItem("Listar Consultas");
+		mntmListarConsultas = new JMenuItem("Listar Consultas");
 		mntmListarConsultas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Front.getFront().redirect(2).tabView(mw);
 			}
 		});
 		mnListar.add(mntmListarConsultas);
-		
-		mw.setVisible(true);
-		
+	}
+
+	@Override
+	public void display() {
+		mw.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		mw.setBounds(0, 0, 600, 350);
+		mw.setJMenuBar(menuBar);
+		mw.setVisible(true);		
 	}
 }
